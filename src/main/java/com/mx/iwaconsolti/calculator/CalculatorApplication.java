@@ -1,5 +1,10 @@
 package com.mx.iwaconsolti.calculator;
 
+import com.mx.iwaconsolti.calculator.Operation.Divide;
+import com.mx.iwaconsolti.calculator.Operation.Minus;
+import com.mx.iwaconsolti.calculator.Operation.Multiply;
+import com.mx.iwaconsolti.calculator.Operation.Sum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,23 +14,75 @@ import java.util.Scanner;
 @SpringBootApplication
 public class CalculatorApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CalculatorApplication.class, args);
-	}
+    private Sum sum;
+    private Divide divide;
+    private Minus minus;
+    //--------------------------------------------------------------------------------------
+    // Inyección de campo/field
+    @Autowired
+    private Multiply multiply;
 
-	@Override
-	public void run(String... args) throws Exception {
-		Scanner scanner = new Scanner(System.in);
+    //--------------------------------------------------------------------------------------
+    // Constructor para inyectar el Bean Sum
+    @Autowired
+    public CalculatorApplication(Sum sum) {
+        this.sum = sum;
+    }
 
-		System.out.print("Enter the first number: ");
-		int firstNumber = scanner.nextInt();
+    //--------------------------------------------------------------------------------------
+    // Setter para inyectar el Bean Minus
+    @Autowired
+    public void setMinus(Minus minus) {
+        this.minus = minus;
+    }
 
-		System.out.print("Enter the second number: ");
-		int secondNumber = scanner.nextInt();
+    // Setter para inyectar el Bean Divide
+    @Autowired
+    public void setDivide(Divide divide) {
+        this.divide = divide;
+    }
 
-		// Use the SumService to calculate the sum
-		int result = firstNumber + secondNumber;
+    //--------------------------------------------------------------------------------------
+    public static void main(String[] args) {
+        SpringApplication.run(CalculatorApplication.class, args);
+    }
 
-		System.out.println("The sum of " + firstNumber + " and " + secondNumber + " is: " + result);
-	}
+    @Override
+    public void run(String... args) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Si deseas terminar escribe cualquier cosa\n" +
+                    "Escribe que deseas hacer, sumar, restar, multiplicar, dividir: ");
+            String operation = scanner.next();
+
+            System.out.println("Ingresa primer numero: ");
+            int a = scanner.nextInt();
+
+            System.out.println("Ingresa segundo numero: ");
+            int b = scanner.nextInt();
+
+            switch (operation) {
+                case "sumar":
+                case "s":
+                    System.out.println("Suma: " + sum.operation(a, b));
+                    continue;
+                case "restar":
+                case "r":
+                    System.out.println("Resta: " + minus.operation(a, b));
+                    continue;
+                case "multiplicar":
+                case "m":
+                    System.out.println("Multiplicación: " + multiply.operation(a, b));
+                    continue;
+                case "dividir":
+                case "d":
+                    System.out.println("División: " + divide.operation(a, b));
+                    continue;
+                default:
+                    System.out.println("Adios");
+            }
+            break;
+        }
+    }
 }
+
