@@ -12,7 +12,7 @@ public class Access {
     private IProjectOperation Mul;
     private IProjectOperation Div;
 
-    public Access(@Qualifier("Sum") IProjectOperation Sum, IProjectOperation Subs, IProjectOperation Mul, IProjectOperation Div) {
+    public Access(@Qualifier("Sum") IProjectOperation Sum, @Qualifier("Subs")IProjectOperation Subs, @Qualifier("Mul")IProjectOperation Mul, @Qualifier("Div")IProjectOperation Div) {
         this.Sum = Sum;
         this.Subs = Subs;
         this.Mul = Mul;
