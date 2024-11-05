@@ -1,13 +1,11 @@
-package com.mx.iwaconsolti.calculator.Config;
+package com.mx.iwaconsolti.calculator.config;
 
-import com.mx.iwaconsolti.calculator.Operation.Divide;
-import com.mx.iwaconsolti.calculator.Operation.Sum;
+import com.mx.iwaconsolti.calculator.operation.Divide;
+import com.mx.iwaconsolti.calculator.operation.Sum;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = {"com.iwa.Calculator.Operation"})
 public class CalculatorConfig {
 
     @Bean
