@@ -6,22 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
 
-import static java.lang.System.out;
-
 @SpringBootApplication
-public class 	CalculatorApplication implements CommandLineRunner {
-	private final Suma suma;
-	private final Resta resta;
-	private final Multiplicacion multiplicacion;
-	private final Divicion divicion;
-
-	public CalculatorApplication(Suma suma,Resta resta,Multiplicacion multiplicacion,Divicion divicion) {
-		this.suma = suma;
-		this.resta = resta;
-		this.divicion = divicion;
-		this.multiplicacion = multiplicacion;
-
-	}
+public class CalculatorApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CalculatorApplication.class, args);
@@ -31,20 +17,15 @@ public class 	CalculatorApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
 
-			out.println("Ingresa un numero");
-			double numero1 = scanner.nextDouble();
+		System.out.print("Enter the first number: ");
+		int firstNumber = scanner.nextInt();
 
-			out.println("Ingresa otro numero");
-			double numero2 = scanner.nextDouble();
+		System.out.print("Enter the second number: ");
+		int secondNumber = scanner.nextInt();
 
+		// Use the SumService to calculate the sum
+		int result = firstNumber + secondNumber;
 
-			System.out.println("La suma es: " + suma.sumaNumeros(numero1, numero2));
-
-			System.out.println("La resta es: " + resta.restaNumeros(numero1, numero2));
-
-			System.out.println("La divicion es: " + divicion.divicionNumeros(numero1, numero2));
-
-			System.out.println("La divicion es: " + multiplicacion.multiplicacionNumeros(numero1, numero2));
-
+		System.out.println("The sum of " + firstNumber + " and " + secondNumber + " is: " + result);
 	}
 }
