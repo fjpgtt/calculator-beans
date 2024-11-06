@@ -29,28 +29,35 @@ public class CalculatorApplication implements CommandLineRunner {
 		int secondNumber = scanner.nextInt();
 
 		String option;
+		boolean validOption;
 
 		do{
 			System.out.println("I hacked this Select the operation to perform Sum, Minus, Multiply, Divide: ");
 			option = scanner.next().toLowerCase();
 
+			validOption = false;
+
 			switch (option){
 				case "sum" :
 					System.out.println("the result of the sum is: " + calculatorService.sum(firstNumber, secondNumber));
+					validOption = true;
 					break;
 				case "minus" :
 					System.out.println("the result of the minus is: " + calculatorService.minus(firstNumber, secondNumber));
+					validOption = true;
 					break;
 				case "multiply" :
 					System.out.println("the result of the multiply is: " + calculatorService.multiply(firstNumber, secondNumber));
+					validOption = true;
 					break;
 				case "divide" :
 					System.out.println("the result of the divide is: " + calculatorService.divide(firstNumber, secondNumber));
+					validOption = true;
 					break;
 				default:
 					System.out.println("invalid option");
 			}
-		} while(!option.equals("sum") && !option.equals("minus") && !option.equals("multiply") && !option.equals("divide"));
+		} while(!validOption);
 
 		scanner.close();
 	}

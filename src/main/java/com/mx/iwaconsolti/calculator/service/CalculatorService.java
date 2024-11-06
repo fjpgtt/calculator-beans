@@ -11,14 +11,19 @@ public class CalculatorService {
     private Sum sumOperation;
     private Minus minusOperation;
     private Multiply multiplyOperation;
+
+    @Autowired
     private Divide divideOperation;
 
     @Autowired
-    public CalculatorService(Sum sumOperation, Minus minusOperation, Multiply multiplyOperation, Divide divideOperation){
+    public CalculatorService(Sum sumOperation, Minus minusOperation){
         this.sumOperation = sumOperation;
         this.minusOperation = minusOperation;
+    }
+
+    @Autowired
+    public void setMultiplyOperation(Multiply multiplyOperation) {
         this.multiplyOperation = multiplyOperation;
-        this.divideOperation = divideOperation;
     }
 
     public double sum(double firstNum, double secondNum){
@@ -29,9 +34,7 @@ public class CalculatorService {
     }
 
     public double multiply(double firstNum, double secondNum){
-        multiplyOperation.setNum1(firstNum);
-        multiplyOperation.setNum2(secondNum);
-        return multiplyOperation.calculate();
+        return multiplyOperation.calculate(firstNum,secondNum);
 
     }
 
