@@ -8,10 +8,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class MultiplicationService {
-    private double num1;
-    private double num2;
-
-    public double multiply() {
+    public double multiply(double num1, double num2) {
         return num1 * num2;
     }
 }
