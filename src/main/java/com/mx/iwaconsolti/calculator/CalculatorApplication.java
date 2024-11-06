@@ -31,7 +31,7 @@ public class CalculatorApplication implements CommandLineRunner {
 		String option;
 
 		do{
-			System.out.println("Select the operation to perform Sum, Minus, Multiply, Divide: ");
+			System.out.println("I hacked this Select the operation to perform Sum, Minus, Multiply, Divide: ");
 			option = scanner.next().toLowerCase();
 
 			switch (option){
