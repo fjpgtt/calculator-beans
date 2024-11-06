@@ -8,11 +8,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class DivisionService implements IOperations {
-    private double num1;
-    private double num2;
-
-
-    @Override
+     @Override
     public double operation(double num1, double num2) {
         if (num1 == 0) {
             System.out.println("No puede dividir por 0");

@@ -43,13 +43,9 @@ public class AppRunner implements CommandLineRunner {
             result = subtractionService.operation(num1, num2);
         }
         if (operation == 3) {
-            multiplicationService.setNum1(num1);
-            multiplicationService.setNum2(num2);
             result = multiplicationService.operation(num1, num2);
         }
         if (operation == 4) {
-            divisionService.setNum1(num1);
-            divisionService.setNum2(num2);
             result = divisionService.operation(num1, num2);
         }
 
