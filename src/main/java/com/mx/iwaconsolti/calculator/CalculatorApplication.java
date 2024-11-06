@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 @SpringBootApplication
-public class 	CalculatorApplication implements CommandLineRunner {
+public class CalculatorApplication implements CommandLineRunner {
 	private final Suma suma;
 	private final Resta resta;
 	private final Multiplicacion multiplicacion;
@@ -30,6 +30,8 @@ public class 	CalculatorApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Eduardo Emmanuel Gonzalez Vazquez");
 
 			out.println("Ingresa un numero");
 			double numero1 = scanner.nextDouble();

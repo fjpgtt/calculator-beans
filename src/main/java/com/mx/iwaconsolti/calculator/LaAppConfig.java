@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration;
 public class LaAppConfig {
 
     @Bean
-    public Resta resta(){ return new Resta(); }
+    public Resta resta(){ return new Resta();}
 
     @Bean
-    public Divicion divicion(){ return new Divicion(); }
+    public Divicion divicion(){ return new Divicion();}
 
 
 }

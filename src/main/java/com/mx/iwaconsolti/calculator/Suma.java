@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class Suma {
 
     public double sumaNumeros(double numero1, double numero2){
-        System.out.println("Hola desde el Bean Suma");
+        System.out.println("Hola desde el Bean Suma con @Component");
         return (numero1 + numero2);
     }
 
