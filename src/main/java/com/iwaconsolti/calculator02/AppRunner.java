@@ -1,6 +1,7 @@
-package com.mx.iwaconsolti.calculator02;
+package com.iwaconsolti.calculator02;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -8,13 +9,16 @@ import java.util.Scanner;
 
 @Component
 public class AppRunner implements CommandLineRunner {
-    private final AdditionService additionService;
-    private final SubtractionService subtractionService;
-    private final MultiplicationService multiplicationService;
-    private final DivisionService divisionService;
+    private final IOperations additionService;
+    private final IOperations subtractionService;
+    private final IOperations multiplicationService;
+    private final IOperations divisionService;
 
     @Autowired
-    public AppRunner(AdditionService additionService, SubtractionService subtractionService, MultiplicationService multiplicationService, DivisionService divisionService) {
+    public AppRunner( @Qualifier("addition") IOperations additionService,
+                      @Qualifier("subtraction") IOperations subtractionService,
+                      @Qualifier("multiplication") IOperations multiplicationService,
+                      @Qualifier("division") IOperations divisionService) {
         this.additionService = additionService;
         this.subtractionService = subtractionService;
         this.multiplicationService = multiplicationService;

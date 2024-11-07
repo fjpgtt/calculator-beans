@@ -1,12 +1,8 @@
-package com.mx.iwaconsolti.calculator02;
+package com.iwaconsolti.calculator02;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-@Getter
-@Setter
-@Component
+@Component("multiplication")
 public class MultiplicationService implements IOperations{
     @Override
     public double operation(double num1, double num2) {

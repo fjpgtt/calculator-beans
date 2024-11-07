@@ -1,4 +1,4 @@
-package com.mx.iwaconsolti.calculator02;
+package com.iwaconsolti.calculator02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
