@@ -1,4 +1,4 @@
-package com.mx.iwaconsolti.calculator;
+package com.mx.iwaconsolti.calculator02;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
